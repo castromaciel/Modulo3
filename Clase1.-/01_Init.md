@@ -22,7 +22,7 @@ npm start
 
 Se abrira el puerto 3000 en nuestro local y visualizaremos la app de react.
 
-![Terminal Running](../assets/Terminal_Running.png)
+![Terminal Running](../assets/Terminal_running.png)
 
 ![Running app](../assets/Running_app.png)
 

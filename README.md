@@ -5,7 +5,7 @@ En este repositorio encontraran los proyectos que iremos trabajando durante las 
 Descarga o clona el repositorio usando:
 
 ```
-git clone https://github.com/castromaciel/Modulo3.githttps://github.com/castromaciel/Modulo3.git
+git clone https://github.com/castromaciel/Modulo3.git
 ```
 ## Aclaración
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)

@@ -1,0 +1,13 @@
+:root {
+  --color-dark: #0e1117;
+  --color-dark-grey: #161b22;
+  --color-grey: #a8b0b7;
+  --color-light-grey: #c8d1d9;
+  --color-white: #ffffff;
+
+  --color-purple: #7352ff;
+}
+
+body {
+  background-color: var(--color-dark);
+}

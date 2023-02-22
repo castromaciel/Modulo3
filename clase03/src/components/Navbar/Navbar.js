@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './navbar.css'
 
 const Navbar = ({ name }) => {
@@ -8,7 +9,7 @@ const Navbar = ({ name }) => {
   return (
     <nav className="navbar bg-custom">
       <div className="container-fluid">
-        <a className="navbar-brand text-white" href="/">{ name }</a>
+        <Link className="navbar-brand text-white" exact to="/">{ name }</Link>
         {
           isLogged
           ? <button className='btn btn-danger' onClick={() => setIsLogged(false)}>Cerrar Sesión</button>

@@ -1,53 +1,24 @@
-import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Nav from './components/Navbar/Navbar';
-import ProductCard from './components/ProductCard/ProductCard';
+import Home from './pages/Home/Home';
+import ProductDetail from './pages/ProductDetail/ProductDetail';
 
 function App() {
-  // const [count, setCount] = useState(0)
-  const [products, setProducts] = useState([])
-
-  const fetchProducts = async () => {
-    const response = await fetch('https://fakestoreapi.com/products')
-    const data = await response.json()
-
-    setProducts(data)
-  }
-
-  useEffect(() => {
-    fetchProducts()
-  }, [])
+  
 
   return (
     <>
       <Nav name='Rolling Code' />
-      <div className='mt-3 d-flex justify-content-center flex-wrap gap-3'>
-        {/* {
-          products?.map((product) => {
-            const {id, title, image, description} = product
-            
-            return (<Card
-              key={id}
-              title={title}
-              image={image}
-              description={description}
-            />)
-          })
-        } */}
-        {
-          products?.map((product) => (<ProductCard key={product.id} {...product} />))
-        }
 
-        {/* <span className='text-white'> Hiciste click {count} veces! </span>
-        <button className='btn btn-outline-light' onClick={() => setCount(count + 1)}>
-          Contador
-        </button>
-        {
-          count >= 10
-            ? <h3 className='text-white'>Felicidades, clickeaste más de 10 veces</h3>
-            : null
-        } */}
+      <Routes>
+        <Route exact path='/' element={ <Home /> } />
         
-      </div>
+        <Route path='/product-detail/:id' element={ <ProductDetail /> } />
+
+        <Route path='/about' element={<h1 className='text-white'>About us</h1>} />
+
+      </Routes>
+      
     </>
   );
 }

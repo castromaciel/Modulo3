@@ -10,11 +10,11 @@ const Navbar = ({ name }) => {
     <nav className="navbar bg-custom">
       <div className="container-fluid">
         <Link className="navbar-brand text-white" exact to="/">{ name }</Link>
-        {
-          isLogged
-          ? <button className='btn btn-danger' onClick={() => setIsLogged(false)}>Cerrar Sesión</button>
-          : <button className='btn btn-primary' onClick={() => setIsLogged(true)}>Iniciar sesion</button>
-        }
+        
+        {/* TODO: Crear rutas de login y registro */}
+        <Link className="navbar-brand text-white" to="/">Registro</Link>
+        <Link className="navbar-brand text-white" to="/">Login</Link>
+        
       </div>
     </nav>
   )

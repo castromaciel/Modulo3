@@ -5,19 +5,19 @@ import ProductDetail from './pages/ProductDetail/ProductDetail';
 
 function App() {
   
-
   return (
     <>
       <Nav name='Rolling Code' />
 
       <Routes>
+
         <Route exact path='/' element={ <Home /> } />
         
         <Route path='/product-detail/:id' element={ <ProductDetail /> } />
-
-        <Route path='/about' element={<h1 className='text-white'>About us</h1>} />
+        {/* TODO: Crear rutas de login y registro */}
 
       </Routes>
+      
       
     </>
   );

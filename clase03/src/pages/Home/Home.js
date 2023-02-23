@@ -12,7 +12,13 @@ const Home = () => {
   }
 
   useEffect(() => {
+    
     fetchProducts()
+
+  }, [])
+
+  useEffect(() => {
+    console.log('Hola')
   }, [])
 
   return (

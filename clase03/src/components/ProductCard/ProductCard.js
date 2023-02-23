@@ -20,7 +20,7 @@ const ProductCard = ({ title, id, category, description, image, price }) => {
       
       <footer className='card-footer pb-2'>
         <h5>${Number(price).toFixed(2)}</h5>
-        <Link to='/product-detail/' className='btn btn-outline-dark'>Ver más</Link>
+        <Link to={`/product-detail/${id}`} className='btn btn-outline-dark'>Ver más</Link>
       </footer>
     </article>
   )

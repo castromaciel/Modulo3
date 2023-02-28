@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Nav from './components/Navbar/Navbar';
+import Cart from './pages/Cart/Cart';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
@@ -19,6 +20,7 @@ function App() {
         {/* TODO: Crear rutas de login y registro */}
         <Route path='/login' element={ <Login /> } />
         <Route path='/register' element={ <Register /> } />
+        <Route path='/cart' element={<Cart />} />
 
       </Routes>
       

@@ -7,18 +7,11 @@ const Home = () => {
   const fetchProducts = async () => {
     const response = await fetch('https://fakestoreapi.com/products')
     const data = await response.json()
-
     setProducts(data)
   }
 
   useEffect(() => {
-    
     fetchProducts()
-
-  }, [])
-
-  useEffect(() => {
-    console.log('Hola')
   }, [])
 
   return (

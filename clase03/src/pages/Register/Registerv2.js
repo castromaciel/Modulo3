@@ -1,11 +1,16 @@
 import { useState } from 'react'
 
-const Register = () => {
+const Registerv2 = () => {
 
-  const [userName, setUserName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [repeatPassword, setRepeatPassword] = useState('')
+
+  const [registerData, setRegisterData] = useState({
+    username: '',
+    email: '',
+    password: '',
+    repeatPassword: '',
+  })
+
+  const { email, password, repeatPassword, username } = registerData
 
   const onSubmit = (event) => {
     // evita la carga del formulario
@@ -14,20 +19,33 @@ const Register = () => {
       console.log('las claves no son iguales')
       return
     }
-
+    console.log(event.target[0].name)
+    console.log(event.target[1].name)
+    console.log(event.target[2].name)
+    console.log(event.target[3].name)
     console.log('registro exitoso')
   }
 
   const onReset = () => {
-    setUserName('')
-    setEmail('')
-    setPassword('')
-    setRepeatPassword('')
+    setRegisterData((prevState) => ({
+      ...prevState,
+      username: '',
+      email: '',
+      password: '',
+      repeatPassword: '',
+    }))
+  }
+
+  const onChange = (event) => {
+    setRegisterData((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }))
   }
 
   return (
     <div className='form-page mt-5 text-white'>
-      <h1>Register</h1>
+      <h1>Registerv2</h1>
       <form
         autoComplete='off'
         onSubmit={onSubmit}
@@ -39,8 +57,9 @@ const Register = () => {
           required
           type='text'
           placeholder='username'
-          value={userName}
-          onChange={(event) => setUserName(event.target.value)}
+          name='username'
+          value={username}
+          onChange={onChange}
         />
         <input 
           required
@@ -48,23 +67,25 @@ const Register = () => {
           type='email'
           placeholder='example@example.com'
           value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={onChange}
         />
         <input 
           required
           minLength={8}
           type='password'
+          name='password'
           placeholder='Ingrese su clave'
           value={password}
-          onChange={(event) => setPassword(event.target.value) }
+          onChange={onChange}
         />
         <input
           required
           minLength={8}
           type='password'
+          name='repeatPassword'
           placeholder='Repita su clave'
           value={repeatPassword}
-          onChange={(event => setRepeatPassword(event.target.value))}
+          onChange={onChange}
         />
 
       </form>
@@ -82,4 +103,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default Registerv2

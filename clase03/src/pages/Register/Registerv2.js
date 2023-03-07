@@ -19,11 +19,7 @@ const Registerv2 = () => {
       console.log('las claves no son iguales')
       return
     }
-    console.log(event.target[0].name)
-    console.log(event.target[1].name)
-    console.log(event.target[2].name)
-    console.log(event.target[3].name)
-    console.log('registro exitoso')
+    
   }
 
   const onReset = () => {

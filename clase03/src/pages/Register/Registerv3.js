@@ -108,11 +108,55 @@ import { useForm } from "react-hook-form";
 import RequiredError from "../../components/FieldErrors/FieldErrors";
 
 const Registerv3 = () => {
-  const { register, handleSubmit, watch, formState } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit, formState } = useForm();
 
-  // console.log(watch("example")); // watch input value by passing the name of it
-  console.log(formState.errors)
+  const createUser = async (body) => {
+
+    try {
+      const response = await fetch('http://localhost:8080/api/users', {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const data = await response.json()
+      console.log(data)
+
+    } catch (error) {
+      console.log(error)
+    }
+    
+    // fetch('http://localhost:8080/api/users', {
+    //   method: 'POST',
+    //   body: JSON.stringify(data),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
+    //   .then(response => response.json())
+    //   .then(json => console.log(json))
+    //   .catch(err => console.log(err))
+
+  }
+  
+  const onSubmit = (body) => {
+    createUser(body)
+  }
+  
+  // const getUsers = async () => {
+    
+  //   try {
+  //     const response = await fetch('http://localhost:8080/api/users')
+  //     const users = await response.json()
+
+  //     console.log('try', users)
+  //   } catch (error) {
+  //     console.error('catch', error)
+  //   }
+
+  // }
+
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <div className="form-page text-white" >
@@ -128,11 +172,12 @@ const Registerv3 = () => {
         {formState.errors.email && <RequiredError />}
 
         <input type='number' placeholder="edad" {...register('age', { required: true, min: 18 } )} />
-        { formState.errors.age && <RequiredError /> }
-        { formState.errors.age?.type === 'min' && <span>La edad minima es de 18 años</span> }
+        { formState.errors.age?.type === 'required' && <RequiredError /> }
+        { formState.errors.age && <span>La edad minima es de 18 años</span> }
 
         <input type="submit" />
       </form>
+      {/* <button onClick={getUsers}>Obtener usuarios</button> */}
     </div>
   );
 }
